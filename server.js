@@ -21,7 +21,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 
 const siteRouter = require('./routers/sitesRouter');
-app.use('/', siteRouter)
+const foodsRouter = require('./routers/foodsRouter');
+app.use('/', siteRouter);
+app.use('/foods', foodsRouter);
 
 app.listen(process.env.PORT || 6996, function(){
   console.log("http://localhost:%d in %s mode", this.address().port, app.settings.env);
