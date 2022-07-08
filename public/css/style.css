@@ -1,0 +1,17 @@
+#popularFood .active{
+  background: white;
+  color: #B1464A;
+}
+#popularFood .active span{
+  color: #B1464A;
+}
+
+#popularFoodSlider .active{
+  background: white;
+  border-color: white;
+  width: 30%;
+  padding: 4rem 0 2rem 0;
+}
+#popularFoodSlider .active img{
+  width: 60%;
+}
