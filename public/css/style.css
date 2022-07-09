@@ -1,6 +1,7 @@
 #popularFood .active{
   background: white;
   color: #B1464A;
+  font-weight: 600;
 }
 #popularFood .active span{
   color: #B1464A;

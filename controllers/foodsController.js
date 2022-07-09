@@ -1,6 +1,6 @@
 class foodsController{
   index(req, res){
-    res.json('foods');
+    res.render('foods/foods', { title: 'Foods' });
   }
 }
 

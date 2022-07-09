@@ -22,8 +22,10 @@ app.use(methodOverride('_method'));
 
 const siteRouter = require('./routers/sitesRouter');
 const foodsRouter = require('./routers/foodsRouter');
+const usersRouter = require('./routers/usersRouter');
 app.use('/', siteRouter);
 app.use('/foods', foodsRouter);
+app.use('/user', usersRouter);
 
 app.listen(process.env.PORT || 6996, function(){
   console.log("http://localhost:%d in %s mode", this.address().port, app.settings.env);
