@@ -1,3 +1,14 @@
+#categorySlider .active{
+  background-color: white;
+  color: #B1464A;
+  font-weight: 600;
+}
+
+#categorySlider .active span{
+  opacity: 1;
+}
+
+
 #popularFood .active{
   background: white;
   color: #B1464A;
@@ -5,6 +16,7 @@
 }
 #popularFood .active span{
   color: #B1464A;
+  opacity: 1;
 }
 
 #popularFoodSlider .active{
@@ -15,4 +27,8 @@
 }
 #popularFoodSlider .active img{
   width: 60%;
+}
+
+::-webkit-scrollbar {
+  height: 0px;             
 }
