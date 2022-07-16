@@ -2,13 +2,15 @@ extends ../layout.pug
 block content 
   section(class='hidden lg:flex flex-wrap justify-center items-center w-full h-fit bg-sushigray py-10 px-20')
     h1(class='text-5xl text-center font-bold font-title leading-relaxed w-full') Login
-    form(action="/login", method="post") 
+    form(action="/register", method="post") 
       label(class='font-semibold text-lg ') Username 
       input(type="text" class='w-full border-2 p-3 my-3 outline-sushired' name='username')
+      label(class='font-semibold text-lg ') Email
+      input(type="email" class='w-full border-2 p-3 my-3 outline-sushired' name='email')
       label(class='font-semibold text-lg ') Password
       input(type="password" class='w-full border-2 p-3 my-3 outline-sushired' name='password') 
       div(class='w-full mt-3')
-        a(href="/register" class='float-left text-blue-500 underline') Create a account 
-        button(class='bg-sushired text-white py-3 px-10 rounded-[2rem] float-right') Login
+        a(href="/register" class='float-left text-blue-500 underline') Login
+        button(class='bg-sushired text-white py-3 px-10 rounded-[2rem] float-right') Register
 
       

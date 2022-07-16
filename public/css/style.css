@@ -31,4 +31,16 @@
 
 ::-webkit-scrollbar {
   height: 0px;             
+  width: 0;
+}
+
+#sidebarNav .active{
+  background: #B54E53;
+  color: white;
+  font-weight: 600;
+  opacity: 1;
+}
+
+input{
+  outline-color: #B1464A;
 }

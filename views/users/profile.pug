@@ -1,0 +1,53 @@
+extends ../layout.pug
+block content
+  section(class='w-full bg-sushigray bg-cover flex flex-wrap justify-center py-10 px-10 lg:px-20')
+    form(action="/user/logout", method="post" id='logoutForm') 
+    div(class='flex-1 bg-sushired flex flex-wrap justify-center items-center py-5')#sidebarNav
+      a(href="#" class='w-full active flex items-center p-6 mb-3 text-white text-xl opacity-50 hover:bg-sushidim') 
+        svg(class='h-6 w-6 m-auto lg:m-0' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 20 20' fill='currentColor')
+          path(fill-rule='evenodd' d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z' clip-rule='evenodd')
+        span(class='mx-1 hidden lg:block') Profile
+      button(href="#" class='w-full flex items-center flex-wrap p-6 mb-3 text-white opacity-50 text-xl hover:bg-sushidim cursor-pointer' id='dropDown') 
+        svg.h-5.w-5(class='h-6 w-6 m-auto lg:m-0' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 20 20' fill='currentColor')
+          path(d='M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z')
+        span(class='mx-1 lg:block') Products 
+      ul(class='w-full px-5 hidden' id='dropDownMenu')
+        li(class='w-full mb-5')
+          a(href="/foods/addFood" class='w-full flex items-center p-6 mb-3 text-white opacity-50 text-xl hover:bg-sushidim cursor-pointer') 
+            svg(class='h-6 w-6 m-auto lg:m-0' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 20 20' fill='currentColor')
+              path(fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z' clip-rule='evenodd')
+            span(class='mx-1 hidden lg:block') Add Product    
+        li(class='w-full flex items-center')
+          a(href="#" class='w-full flex items-center p-6 mb-3 text-white opacity-50 text-xl hover:bg-sushidim cursor-pointer') 
+            svg(class='h-6 w-6 m-auto lg:m-0' xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke='currentColor' stroke-width='2')
+              path(stroke-linecap='round' stroke-linejoin='round' d='M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12')
+            span(class='mx-1 hidden lg:block') Producs Uploaded
+      
+      a(href="#" class='w-full flex items-center p-6 mb-3 text-white opacity-50 text-xl hover:bg-sushidim') 
+        svg(class='h-6 w-6 m-auto lg:m-0' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 20 20' fill='currentColor')
+          path(stroke-linecap='round' stroke-linejoin='round' d='M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z')
+        span(class='mx-1 hidden lg:block') Orders
+      a(href="#" class='w-full flex items-center p-6 mb-3 text-white opacity-50 text-xl hover:bg-sushidim') 
+        svg(class='h-6 w-6 m-auto lg:m-0' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 20 20' fill='currentColor')
+          path(fill-rule='evenodd' d='M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z' clip-rule='evenodd')
+        span(class='mx-1 hidden lg:block') Setting
+      a(href="javascript:{}" onclick="document.getElementById('logoutForm').submit()" class='w-full flex items-center p-6 mb-3 text-white opacity-50 text-xl hover:bg-sushidim') 
+        svg(class='h-6 w-6 m-auto lg:m-0' xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke='currentColor' stroke-width='2')
+          path(stroke-linecap='round' stroke-linejoin='round' d='M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1')
+        span(class='mx-1 hidden lg:block') Logout
+    
+    div(class='flex-[3] bg-white flex flex-wrap justify-center items-center py-5' id='profile')
+      div(class='w-full')
+        img(src=user.avatar, class="m-auto w-40 h-40 rounded-full border-2 shadow-2xl" id='image')
+      div(class='w-4/5 text-center my-3')
+        form(action="/user?_method=PUT" enctype="multipart/form-data" method="post")
+          input(type="file", name="avatar" id='changeImage' class='hidden')
+          input(type="text", name="id" value=user._id class='hidden')
+          label(class='w-full block text-left font-bold text-sushired text-lg') Username 
+          input(type="text" name='username' value=user.username class='w-full border-2 p-3 my-3') 
+          label(class='w-full block text-left mb-3 font-bold text-sushired text-lg') Email 
+          input(type="text" name='email' value=user.email class='w-full border-2 p-3') 
+          button(class='bg-sushired text-white py-3 px-10 rounded-[2rem] my-5' type='submit') Edit Profile
+    script(src="/js/changeImage.js")     
+    script(src="/js/dropDown.js")     
+    script(src="/js/sidebarNav.js")     

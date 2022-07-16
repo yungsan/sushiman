@@ -1,0 +1,39 @@
+extends ../layout.pug
+block content
+  form(action="/foods/addFood" method="post" enctype="multipart/form-data")
+    section(class='w-full bg-white bg-cover h-fit flex flex-col-reverse lg:flex-row flex-wrap items-start justify-center py-10 px-10 lg:px-20 gap-8')
+      div(class='flex-0 lg:flex-1 bg-white py-5' id='profile')
+        div(class='w-full')
+          div(class='w-full flex flex-wrap lg:px-10 text-center my-3')
+            input(type="file", name="thumbnail" id='changeImage' class='hidden')
+            label(class='w-full block text-left font-bold text-sushired text-lg mb-3') Product Name
+            input(type="text" name='name' class='w-full border-2 p-3 mb-5 bg-sushigray' placeholder='Product Name') 
+            div(class='w-full flex flex-wrap gap-8 justify-between')
+              div(class='flex-0 lg:flex-1')
+                label(class='w-full block text-left mb-3 font-bold text-sushired text-lg') Price 
+                input(type="text" name='price' class='w-full border-2 p-3 mb-5 bg-sushigray' placeholder='Price') 
+              div(class='flex-0 lg:flex-1')
+                label(class='w-full block text-left mb-3 font-bold text-sushired text-lg') Sale Price 
+                input(type="text" name='salePrice' class='w-full border-2 p-3 mb-5 bg-sushigray' placeholder='Sale Price') 
+            div(class='flex w-full gap-8')
+              div(class='flex-1')
+                label(class='w-full block text-left mb-3 font-bold text-sushired text-lg') Categories
+                select(name="category" class='w-full border-2 border-r-0 border-t-0 p-3 outline-none font-semibold  bg-sushigray') 
+                  option(value="sushi" name="category") Sushi
+                  option(value="ramen" name="category") Ramen
+                  option(value="udon" name="category") Udon
+                  option(value="dango" name="category") Dango
+                  option(value="tea" name="category") Tea
+              //- div(class='flex-1')
+              //-   label(class='w-full block text-left mb-3 font-bold text-sushired text-lg') Tags
+              //-   input(type="text" name='tags' class='w-full border-2 p-3 mb-5 bg-sushigray' placeholder='Tags') 
+            label(class='w-full block text-left font-bold text-sushired text-lg mb-3') Description
+            textarea(name='description' class='w-full h-96 border-2 p-3 mb-5 box-border bg-sushigray') 
+
+            button(class='bg-sushired text-white py-3 px-10 rounded-[2rem] my-5 m-auto' type='submit') Upload Product
+      div(class='flex-1 w-full py-5')
+        label(class='w-full block text-center text-lg font-bold text-sushired mb-3') Product Thumbnail
+        img(src='/images/default.png', class="w-52 h-52 lg:w-96 lg:h-96 object-cover border-2 shadow-lg mb-10 m-auto" id='image')
+
+      
+      script(src="/js/changeImage.js")     

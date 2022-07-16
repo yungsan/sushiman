@@ -1,7 +1,12 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const foodsController = require('../controllers/foodsController');
+const upload = require('../middleware/upload');
+const foodsController = require("../controllers/foodsController");
 
-router.route('/').get(foodsController.index)
+router
+  .route("/addFood")
+  .get(foodsController.addFood)
+  .post(upload.single('thumbnail'), foodsController._addFood);
+router.route("/").get(foodsController.index);
 
 module.exports = router;
