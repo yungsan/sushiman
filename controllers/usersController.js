@@ -39,7 +39,6 @@ class usersController{
   }
 
   async _register(req, res){
-  
     try {
       const isExisted = await usersModel.findOne({ username: req.body.username });
       if (isExisted) {
@@ -50,7 +49,7 @@ class usersController{
       res.redirect('/user/login');
 
     } catch (error) {
-      res.json(error);
+      res.json({ error });
     }
   }
 

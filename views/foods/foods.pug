@@ -21,11 +21,11 @@ block content
       div(class='inline-block w-[100px] h-[50px] lg:w-[15%] mr-3')
         button(class='relative bg-sushigraydim text-black w-full  border-[1px] py-3 rounded-[2rem] flex items-center justify-center overflow-hidden')
           span(class='z-10 opacity-70') Others
-    div(class='w-full m-auto mt-10 inline-flex flex-wrap items-end justify-between h-fit')
+    div(class='w-full m-auto mt-10 inline-flex flex-wrap justify-between h-fit')
       each food in foods
-        a(href=`/foods/${food._id}` class='w-full lg:w-[24%] mb-10 min-h-[300px] rounded-[2rem] bg-white flex flex-wrap items-center justify-center py-10 font-semibold shadow-lg hover:bg-sushigray hover:text-sushired')
+        a(href=`/foods/${food._id}` class='w-full lg:w-[24%] mb-10 min-h-[400px] rounded-[2rem] bg-white flex flex-wrap items-center justify-center py-10 font-semibold shadow-lg hover:bg-sushigray hover:text-sushired')
           div(class='w-full')
-            img(src=food.thumbnail, class="w-[40%] m-auto")
+            img(src=food.thumbnail, class="w-[40%] m-auto object-cover myResize")
           div(class='w-full px-10')
             div(class='w-full my-5') 
               p(class='text-2xl font-title opacity-80 truncate')=food.name
@@ -37,3 +37,4 @@ block content
                 span(class='opacity-80') 4.9
 
     script(src="/js/categorySlider.js") 
+    script(src="/js/resize.js") 

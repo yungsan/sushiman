@@ -19,6 +19,13 @@ class foodsController{
       res.json(error);
     }
   }
+
+  async detail(req, res){
+    const food = await foodsModel.findOne({ _id: req.params.id });
+    const similarFoods = await foodsModel.find({ category: food.category });
+    res.render('foods/detailFood', { title: food.name, food, similarFoods });
+  }
+
 }
 
 module.exports = new foodsController();
