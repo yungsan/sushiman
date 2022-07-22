@@ -62,6 +62,7 @@ class usersController{
       res.json(error);
     }
   }
+
 }
 
 module.exports = new usersController();

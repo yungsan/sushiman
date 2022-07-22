@@ -17,10 +17,20 @@ function decrease(){
 
 // addToCart
 const addToCartBtn = document.querySelector('#addToCart');
-addToCartBtn.addEventListener('click', () => addToCart());
+const foodId = document.querySelector('#foodId').innerText;
+const foodThumbnail = document.querySelector('#foodThumbnail').src;
+const foodName = document.querySelector('#foodName').innerText;
+const foodPrice = document.querySelector('#foodPrice').innerText.slice(1, this.length-3);
+const userId = document.querySelector('#userId').innerText;
+
+// console.log(foodThumbnail, foodName, foodPrice);
+addToCartBtn.addEventListener('click', () => {
+  addToCart()
+});
 
 function addToCart(){
   toast();
+  sendData(`/foods/${foodId}`, `userId=${userId}&foodId=${foodId}&foodThumbnail=${foodThumbnail}&foodName=${foodName}&foodPrice=${foodPrice}&amount=${amount.innerText}`);
 }
 
 // favorite
@@ -43,12 +53,27 @@ function toast(type){
   </svg>
   <p class='flex-1 font-bold'>
     "${document.querySelector('#foodName').innerHTML}" 
-    <span class='font-normal'>was successfully added to your cart! <span>
-    </p>`
+    <span class='font-normal'>was successfully added to your cart! </span>
+  </p>`
   div.innerHTML += msg.trim();
   const toast = document.querySelector('.toast');
   toast.appendChild(div);
   setTimeout(() => {
     toast.removeChild(div);
   }, 3000);
+}
+
+function sendData(url, params){
+  const http = new XMLHttpRequest();
+  http.open('POST', url, true);
+
+  //Send the proper header information along with the request
+  http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+  http.onreadystatechange = function() {//Call a function when the state changes.
+      if(http.readyState == 4 && http.status == 200) {
+          alert(http.responseText);
+      }
+  }
+  http.send(params);
 }

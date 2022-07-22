@@ -1,4 +1,5 @@
 const foodsModel = require('../models/foodsModel');
+const jwt = require("jsonwebtoken");
 
 class foodsController{
   async index(req, res){
@@ -22,8 +23,12 @@ class foodsController{
 
   async detail(req, res){
     const food = await foodsModel.findOne({ _id: req.params.id });
+    
+    const loginToken = req.signedCookies.loginToken;
+    const userID = jwt.verify(loginToken, process.env.SECRET).id;
+    
     const similarFoods = await foodsModel.find({ category: food.category });
-    res.render('foods/detailFood', { title: food.name, food, similarFoods });
+    res.render('foods/detailFood', { title: food.name, food, similarFoods, userID });
   }
 
 }

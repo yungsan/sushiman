@@ -1,0 +1,24 @@
+extends ../layout.pug
+block content 
+  section(class='lg:flex flex-wrap justify-center w-full h-fit bg-sushigray py-10 px-20')
+    div(class='flex-[2]')
+      each food in data
+        div(class='flex items-center w-full mb-5 min-h-[128px] border-b-2 last:border-b-0')
+          div(class='w-[10%]')
+            div(class='w-full flex items-center')
+              img(src=food.foodThumbnail, class="object-cover")
+          div(class='w-3/5 text-xl font-bold px-5 py-3')=food.foodName
+          div(class='w-1/5 flex items-center my-5')
+            svg(class='w-7 h-7 fill-black cursor-pointer down'  xmlns='http://www.w3.org/2000/svg' viewbox='0 0 20 20')
+              path(fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z' clip-rule='evenodd')
+            div(class='mx-3 border-2 px-3 py-1 h-fit amount')=food.amount
+            svg(class='w-7 h-7 fill-black cursor-pointer up' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 20 20')
+              path(fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z' clip-rule='evenodd')
+          div(class='w-[10%] font-bold price')=Number((food.foodPrice)*(food.amount))
+          div(class='w-[10%] font-bold priceAfter hidden')=Number((food.foodPrice)*(food.amount))
+        
+    div(class='flex-1 h-96 bg-black')
+  script(src="/js/amount.js") 
+  
+
+      
