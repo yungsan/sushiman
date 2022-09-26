@@ -7,7 +7,7 @@ class cartsController{
     const userID = jwt.verify(loginToken, process.env.SECRET).id;
 
     const data = await cartsModel.find({ userId: userID });
-    
+
     res.render('users/carts', { title: 'Carts', data });
 
   }

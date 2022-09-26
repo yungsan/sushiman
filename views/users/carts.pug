@@ -1,23 +1,12 @@
 extends ../layout.pug
 block content 
-  section(class='lg:flex flex-wrap justify-center w-full h-fit bg-sushigray py-10 px-20')
-    div(class='flex-[2]')
-      each food in data
-        div(class='flex items-center w-full mb-5 min-h-[128px] border-b-2 last:border-b-0')
-          div(class='w-[10%]')
-            div(class='w-full flex items-center')
-              img(src=food.foodThumbnail, class="object-cover")
-          div(class='w-3/5 text-xl font-bold px-5 py-3')=food.foodName
-          div(class='w-1/5 flex items-center my-5')
-            svg(class='w-7 h-7 fill-black cursor-pointer down'  xmlns='http://www.w3.org/2000/svg' viewbox='0 0 20 20')
-              path(fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z' clip-rule='evenodd')
-            div(class='mx-3 border-2 px-3 py-1 h-fit amount')=food.amount
-            svg(class='w-7 h-7 fill-black cursor-pointer up' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 20 20')
-              path(fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z' clip-rule='evenodd')
-          div(class='w-[10%] font-bold price')=Number((food.foodPrice)*(food.amount))
-          div(class='w-[10%] font-bold priceAfter hidden')=Number((food.foodPrice)*(food.amount))
-        
-    div(class='flex-1 h-96 bg-black')
+  a(href='/checkout' class='flex items-center justify-end bg-sushired p-3 text-white fixed top-[75%] right-0')
+    p( class='text-lg font-bold') Go to Checkout!
+    svg(class='w-10 h-10' xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke-width='1.5' stroke='currentColor')
+      path(stroke-linecap='round' stroke-linejoin='round' d='M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z')
+
+  section(class='grid grid-cols-2 gap-4 w-full h-fit bg-white py-10 px-20' id='carts')
+  script(src="/js/getCartItems.js") 
   script(src="/js/amount.js") 
   
 

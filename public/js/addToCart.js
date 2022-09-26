@@ -1,3 +1,5 @@
+const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
 // amount
 const upBtn = document.querySelector('#up');
 const downBtn = document.querySelector('#down');
@@ -21,16 +23,23 @@ const foodId = document.querySelector('#foodId').innerText;
 const foodThumbnail = document.querySelector('#foodThumbnail').src;
 const foodName = document.querySelector('#foodName').innerText;
 const foodPrice = document.querySelector('#foodPrice').innerText.slice(1, this.length-3);
-const userId = document.querySelector('#userId').innerText;
 
-// console.log(foodThumbnail, foodName, foodPrice);
 addToCartBtn.addEventListener('click', () => {
   addToCart()
 });
 
 function addToCart(){
   toast();
-  sendData(`/foods/${foodId}`, `userId=${userId}&foodId=${foodId}&foodThumbnail=${foodThumbnail}&foodName=${foodName}&foodPrice=${foodPrice}&amount=${amount.innerText}`);
+  const data = {
+    foodId,
+    foodThumbnail,
+    foodName,
+    foodPrice: +foodPrice,
+    amount: +amount.innerText
+  }
+  console.log(data);
+  cart.unshift(data);
+  localStorage.setItem('cart', JSON.stringify(cart));
 }
 
 // favorite

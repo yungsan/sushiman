@@ -4,6 +4,7 @@ const amount = document.querySelectorAll('.amount');
 const prices = document.querySelectorAll('.price');
 const pricesAfter = document.querySelectorAll('.priceAfter');
 
+
 upBtn.forEach((btn, i) => {
   btn.addEventListener('click', () => {
     increase(i);
@@ -25,13 +26,5 @@ function decrease(i){
   const amt = Number(amount[i].innerText);
   if (amt <= 1) return;
   amount[i].innerText = amt - 1;
-}
-
-function changePrice(i){
-  const amt = Number(amount[i].innerText);
-  const p = Number(prices[i].innerText);
-  pricesAfter[i].innerHTML = amt * p;
-  pricesAfter[i].classList.remove('hidden');
-  prices[i].classList.add('hidden');
 }
 
